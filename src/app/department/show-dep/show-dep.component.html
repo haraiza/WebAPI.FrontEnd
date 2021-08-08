@@ -16,7 +16,6 @@ data-bs-keyboard="false">
       </div>
       <div class="modal-body">
         <app-add-edit-dep [dep]="dep" *ngIf="ActivateAddEditDepComp"></app-add-edit-dep>
-        <!-- <app-add-edit-dep ></app-add-edit-dep> -->
       </div>
       <div class="modal-footer">
         <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Close</button>
@@ -42,14 +41,12 @@ data-bs-keyboard="false">
             <td>{{dataItem.DepartmentName}}</td>
             <td>
                 <button type="button" class="btn btn-light mr-1"
-                data-bs-toggle="modal" data-bs-target="#exampleMOdal"
+                data-bs-toggle="modal" data-bs-target="#exampleModal"
                 (click)="editClick(dataItem)"
-                data-bs-backdrop="static" data-bs-keyboard="false"
-                >Edit</button>
-            </td>
-            <td>
+                data-bs-backdrop="static" data-bs-keyboard="false">Edit</button>
                 <button type="button" class="btn btn-light mr-1">Delete</button>
             </td>
+           
         </tr>
     </tbody>
 </table>

@@ -11,15 +11,15 @@ export class ShowDepComponent implements OnInit {
   constructor(private service:SharedService) { }
 
   DepartmentList:any=[];
-
-  
   ModalTitle:string;
   ActivateAddEditDepComp:boolean=false;
   dep:any;
 
+
   ngOnInit(): void {
     this.refreshDepList();
   }
+
 
   addClick(){
     this.dep={
@@ -29,6 +29,7 @@ export class ShowDepComponent implements OnInit {
     this.ModalTitle="Add Department";
     this.ActivateAddEditDepComp=true;
   }
+
 
   editClick(item: any){
     this.dep=item;
@@ -41,6 +42,7 @@ export class ShowDepComponent implements OnInit {
     this.ActivateAddEditDepComp=false;
     this.refreshDepList();
   }
+
 
   refreshDepList(){
     this.service.getDepList().subscribe(data=>{
