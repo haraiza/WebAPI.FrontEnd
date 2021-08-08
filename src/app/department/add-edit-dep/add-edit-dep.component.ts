@@ -22,7 +22,7 @@ export class AddEditDepComponent implements OnInit {
   addDepartment(){
     var val = {
                 DepartmentId:this.DepartmentId, 
-                DepartmentName:this.dep.DepartmentName
+                DepartmentName:this.DepartmentName
               }; 
     this.service.addDepartment(val).subscribe(res=> {
       alert(res.toString());
@@ -32,7 +32,7 @@ export class AddEditDepComponent implements OnInit {
   updateDepartment(){
     var val = {
                 DepartmentId:this.DepartmentId, 
-                DepartmentName:this.dep.DepartmentName
+                DepartmentName:this.DepartmentName
               }; 
     this.service.updateDepartment(val).subscribe(res=> {
       alert(res.toString());

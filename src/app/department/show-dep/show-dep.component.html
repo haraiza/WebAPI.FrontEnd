@@ -6,8 +6,9 @@ data-bs-keyboard="false">
 </button>
 
 <!-- Modal -->
-<div class="modal fade" id="staticBackdrop" data-bs-backdrop="static" data-bs-keyboard="false" tabindex="-1" aria-labelledby="staticBackdropLabel" aria-hidden="true">
-  <div class="modal-dialog">
+<div class="modal fade" id="staticBackdrop" data-bs-backdrop="static" data-bs-keyboard="false" 
+  tabindex="-1" aria-labelledby="staticBackdropLabel" aria-hidden="true">
+  <div class="modal-dialog modal-dialog-centered modal-xl" role="document">
     <div class="modal-content">
       <div class="modal-header">
         <h5 class="modal-title" id="staticBackdropLabel">{{ModalTitle}}</h5>
@@ -44,6 +45,7 @@ data-bs-keyboard="false">
                 data-bs-toggle="modal" data-bs-target="#exampleModal"
                 (click)="editClick(dataItem)"
                 data-bs-backdrop="static" data-bs-keyboard="false">Edit</button>
+                
                 <button type="button" class="btn btn-light mr-1">Delete</button>
             </td>
            
