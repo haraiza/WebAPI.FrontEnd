@@ -1,14 +1,19 @@
 import { Component, OnInit } from '@angular/core';
 import { SharedService } from 'src/app/shared.service';
 
+
 @Component({
   selector: 'app-show-dep',
   templateUrl: './show-dep.component.html',
   styleUrls: ['./show-dep.component.css']
 })
+
+
 export class ShowDepComponent implements OnInit {
 
+  
   constructor(private service:SharedService) { }
+
 
   DepartmentList:any=[];
   ModalTitle:string;
@@ -38,6 +43,16 @@ export class ShowDepComponent implements OnInit {
   }
 
 
+  deleteClick(item: any){
+    if(confirm('Are you sure?')){
+      this.service.deleteDepartment(item.DepartmentId).subscribe(data=>{
+        alert(data.toString());
+        this.refreshDepList();
+      })
+    }
+  }
+
+
   closeClick(){
     this.ActivateAddEditDepComp=false;
     this.refreshDepList();
@@ -49,4 +64,6 @@ export class ShowDepComponent implements OnInit {
       this.DepartmentList=data;
     });
   }
+
+
 }
