@@ -67,15 +67,38 @@ export class AddEditEmpComponent implements OnInit {
   }
 
 
-  uploadPhoto(event: any){
-    var file = event.target.files[0];
-    const formData:FormData = new FormData();
-    formData.append('uploadedFile', file, file.name);
+  uploadPhoto(event: Event){
+    const htmlInput:HTMLInputElement= event.target as  HTMLInputElement;
+    const  reader= new FileReader();
 
-    this.service.UploadPhoto(formData).subscribe((data:any)=>{
-      this.PhotoFileName = data.toString();
-      this.PhotoFilePath = this.service.PhotoUrl + this.PhotoFileName;
-    })
+    if(htmlInput && htmlInput.files){
+      const fileName = htmlInput.files[0].name;
+      reader.readAsDataURL(htmlInput.files[0]);
+      reader.onload=()=>{
+       
+        this.PhotoFilePath =reader.result!.toString();
+       
+        const resultImageFile= reader.result!.toString();
+        const base64Image = resultImageFile?.split(',')[1];
+
+       
+        this.service.UploadPhoto(base64Image).subscribe((data:any)=>{
+        // this.PhotoFileName = data.toString();
+        // this.PhotoFilePath = this.service.PhotoUrl + this.PhotoFileName;
+    }, error=>{
+      console.log(error);
+    });
+        
+      }
+    }
+    // var file = event.target.files[0];
+    // const formData:FormData = new FormData();
+    // formData.append('uploadedFile', file, file.name);
+
+    // this.service.UploadPhoto(formData).subscribe((data:any)=>{
+    //   this.PhotoFileName = data.toString();
+    //   this.PhotoFilePath = this.service.PhotoUrl + this.PhotoFileName;
+    // })
   }
 
 

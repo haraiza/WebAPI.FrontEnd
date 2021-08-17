@@ -25,7 +25,7 @@
 </div>
 <div class="ml-3 bd-highlight" style="width: 40px;">
     <img [src]=PhotoFilePath height="250px;" width="200px;">
-    <input type="file" (change)="uploadPhoto($event)" class="mt-2">
+    <input type="file" (change)="uploadPhoto($event)" class="mt-2" accept=".jpg, .jpeg, .png">
 </div>
 
 <button (click)="addEmployee()" *ngIf="emp.EmployeeId==0" class="btn btn-primary">Add</button>
