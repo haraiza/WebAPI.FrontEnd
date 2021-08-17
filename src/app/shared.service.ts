@@ -7,8 +7,12 @@ import { Observable } from 'rxjs';
 })
 export class SharedService {
 
-  readonly APIUrl = "http://localhost:53372/api";
-  readonly PhotoUrl = "http://localhost:53372/Photos";
+  // readonly APIUrl = "http://localhost:53372/api";
+  // readonly PhotoUrl = "http://localhost:53372/Photos";
+
+  
+  readonly APIUrl = "api";
+  readonly PhotoUrl = "Photos";
   constructor(private http:HttpClient) { }
 
   getDepList():Observable<any[]>{
